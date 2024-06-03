@@ -1,0 +1,61 @@
+.create-edit-panel {
+    .panel-navbar {
+        height: 64px;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 20px 0 30px;
+        border-bottom: 1px solid #D5DFE9;
+        flex-direction: row !important;
+        width: 560px !important;
+        box-shadow: none !important;
+        background-color: #FAFAFA !important;
+
+        &__title {
+            font-weight: bold;
+            color: #5C6269;
+            font-family: 'Dosis', sans-serif !important;
+        }
+    }
+    .panel-body {
+        padding: 30px 30px 0;
+
+        &__title {
+            color: #2A323C;
+            margin-bottom: 5px;
+            font-size: 18px;
+            font-family: 'Nunito', sans-serif;
+        }
+        &__subtitle {
+            color: #5C6269;
+            margin-bottom: 13px;
+            font-size: 16px;
+            font-family: 'Nunito', sans-serif;
+        }
+        &__inputs {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+    }
+    .panel-footer {
+        position: absolute;
+        bottom: 30px;
+        left: 30px;
+        right: 30px;
+        display: flex;
+        justify-content: flex-end;
+
+        &__button {
+            font-family: 'Nunito', sans-serif;
+            text-transform: none;
+            &--secondary {
+                @extend .panel-footer__button;
+                color: black;
+            } 
+            &--primary{
+                @extend .panel-footer__button;
+            }
+        }
+    }
+    
+}

@@ -1,0 +1,23 @@
+.delete-modal{
+    .MuiPaper-root{
+        padding: 30px;
+        height: 240px;
+    }
+    #alert-dialog-title {
+        font-family: 'Nunito', sans-serif;
+    }
+    #alert-dialog-description {
+        font-family: 'Nunito', sans-serif;
+    }
+
+    &__button {
+        font-family: 'Nunito', sans-serif !important;
+        &--secondary {
+            @extend .delete-modal__button;
+            color: black !important;
+        }
+        &--primary {
+            @extend .delete-modal__button;
+        }
+    }
+}

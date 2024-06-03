@@ -1,0 +1,28 @@
+
+.populated-list {
+    position: relative;
+    padding: 0 61px 191px;
+    border: 1px solid #C6C6C6;
+    border-radius: 5px;
+    border: none;
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        margin: 87px 0 16px;
+    }
+    &__title {
+        color: #87898C;
+        font-family: 'Nunito', sans-serif;
+    }
+    &__button {
+        height: 36px;
+        text-transform: none !important;
+        font-family: 'Nunito', sans-serif !important;
+    }
+    &__items {
+        .shopping-item {
+            margin-bottom: 12px
+        }
+    }
+}

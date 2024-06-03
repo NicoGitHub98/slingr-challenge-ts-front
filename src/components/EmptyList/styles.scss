@@ -1,0 +1,19 @@
+
+.empty-list {
+    position: relative;
+    margin: 110px 25% 0 25%;
+    border: 1px solid #C6C6C6;
+    border-radius: 5px;
+    height: 290px;
+    text-align: center;
+
+    &__title {
+        color: #87898C;
+        font-family: 'Nunito', sans-serif;
+        margin: 87px 0 16px;
+    }
+    &__button {
+        text-transform: none !important;
+        font-family: 'Nunito', sans-serif !important;
+    }
+}
