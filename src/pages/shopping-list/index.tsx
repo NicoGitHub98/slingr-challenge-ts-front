@@ -6,13 +6,13 @@ import EmptyList from '../../components/EmptyList'
 import PopulatedList from '../../components/PopulatedList'
 import CreateEditPanel from '../../components/CreateEditPanel'
 import DeleteModal from '../../components/DeleteModal'
-import type { Props as ShoppingItemProps } from '../../components/ShoppingItem'
+import type { ShoppingItem } from '../../entities/ShoppingItem'
 import { type ACTIONS } from '../../constants'
 import { getShoppingList, createShoppingItem, editShoppingItem, deleteShoppingItem } from '../../api/shoppingList'
 import './styles.css'
 
 function ShoppingList() {
-  const [itemList, setItemList] = useState<Array<ShoppingItemProps['item']>>([])
+  const [itemList, setItemList] = useState<Array<ShoppingItem>>([])
   const [loading, setLoading] = useState(false);
   const [selectedItem, setSelectedItem] = useState<any>(null);
   const [isPanelOpen, setIsPanelOpen] = useState(false);
@@ -59,7 +59,7 @@ function ShoppingList() {
 
 
   }
-  const handleItemSelection = (action: ACTIONS, item?: ShoppingItemProps['item']) => {
+  const handleItemSelection = (action: ACTIONS, item?: ShoppingItem) => {
     console.log("item selected: ", item)
     setSelectedItem(item);
     if (action === 'edit') {

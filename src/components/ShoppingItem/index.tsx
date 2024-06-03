@@ -4,18 +4,13 @@ import Typography from '@mui/material/Typography';
 import Checkbox from '@mui/material/Checkbox';
 import ModeEditOutlinedIcon from '@mui/icons-material/ModeEditOutlined';
 import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
+import type { ShoppingItem } from '../../entities/ShoppingItem'
 import { ACTIONS } from '../../constants'
 
 import './styles.scss'
 
-export type Props = {
-    item: {
-        id: string;
-        name: string;
-        description: string;
-        amount: string;
-        purchased: boolean;
-    };
+type Props = {
+    item: ShoppingItem;
     handleSelection: (action: ACTIONS, item: any) => void
 }
 

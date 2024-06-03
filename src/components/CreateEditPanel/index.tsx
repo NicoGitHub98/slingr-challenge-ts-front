@@ -11,17 +11,16 @@ import InputLabel from '@mui/material/InputLabel';
 import Button from '@mui/material/Button';
 import Checkbox from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
-import type { Props as ShoppingItemProps } from '../ShoppingItem'
+import type { ShoppingItem } from '../../entities/ShoppingItem'
 
 import './styles.scss'
-import { formLabelClasses } from '@mui/material';
 
 type Props = {
     isOpen: boolean;
     toggleOpen: (e?: React.KeyboardEvent | React.MouseEvent) => void;
-    item?: ShoppingItemProps['item'];
-    handleAdd: (item: ShoppingItemProps['item']) => void
-    handleEdit: (item: ShoppingItemProps['item']) => void
+    item?: ShoppingItem;
+    handleAdd: (item: ShoppingItem) => void
+    handleEdit: (item: ShoppingItem) => void
 }
 
 const WORDINGS = {
@@ -93,7 +92,7 @@ const CreateEditPanel = ({ isOpen, toggleOpen, item, handleAdd, handleEdit }: Pr
             className='create-edit-panel'
             anchor="right"
             open={isOpen}
-            onClose={e => toggleOpen()}
+            onClose={() => toggleOpen()}
         >
             <AppBar className="panel-navbar" position="static">
                 <Typography className="panel-navbar__title" variant="h6" component="span" sx={{ flexGrow: 1 }}>

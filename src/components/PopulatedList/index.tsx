@@ -1,13 +1,14 @@
 import React from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import ShoppingItem, { type Props as ShoppingItemProps } from '../ShoppingItem'
+import ShoppingItem from '../ShoppingItem'
+import type { ShoppingItem as SIT } from '../../entities/ShoppingItem'
 import { ACTIONS } from '../../constants'
 
 import './styles.scss'
 
 type Props = {
-    items: Array<ShoppingItemProps['item']>
+    items: Array<SIT>
     handleSelection: (action: ACTIONS, item?: any ) => void
 }
 

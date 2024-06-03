@@ -5,15 +5,15 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-import type { Props as ShoppingItemProps } from '../ShoppingItem'
+import type { ShoppingItem } from '../../entities/ShoppingItem'
 
 import './styles.scss'
 
 type Props = {
-    item: ShoppingItemProps['item']
+    item: ShoppingItem
     isOpen: boolean;
     toggleOpen: (e?: React.KeyboardEvent | React.MouseEvent) => void;
-    handleDelete: (item: ShoppingItemProps['item']) => void
+    handleDelete: (item: ShoppingItem) => void
 };
 
 export default function DeleteModal(props: Props) {
@@ -23,7 +23,7 @@ export default function DeleteModal(props: Props) {
         <Dialog
             className="delete-modal"
             open={isOpen}
-            onClose={(event) => toggleOpen()}
+            onClose={() => toggleOpen()}
             aria-labelledby="alert-dialog-title"
             aria-describedby="alert-dialog-description"
         >
