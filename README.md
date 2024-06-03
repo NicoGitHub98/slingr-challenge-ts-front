@@ -1,30 +1,22 @@
-# React + TypeScript + Vite
+# Shopping List
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This app is a small shopping list app (similar to a TODO List) that lets you create, edit and delete groceries to buy.
 
-Currently, two official plugins are available:
+The app is built using React + TypeScript + Vite and uses the browser localStorage for persistence.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+You can see a live demo [here]([https://nicogithub98.github.io/ShoppingList]) hosted on my github pages.
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+To run the app you must first install dependencies: 
+```
+npm i
+```
+- To run locally for development:
+```
+npm run dev
+```
+- To build the production app:
+```
+npm run build
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+The configs are set in a way that it will serve the app at the root path for local development, but under the `/ShoppingList` path for my github pages. Feel free to modify the `vite.config.ts` file and the router under `main.tsx` to adapt it to your needs.

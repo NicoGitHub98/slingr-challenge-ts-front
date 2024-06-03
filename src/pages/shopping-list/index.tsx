@@ -60,7 +60,6 @@ function ShoppingList() {
 
   }
   const handleItemSelection = (action: ACTIONS, item?: ShoppingItem) => {
-    console.log("item selected: ", item)
     setSelectedItem(item);
     if (action === 'edit') {
       setIsPanelOpen((prev) => !prev);

@@ -15,7 +15,7 @@ const router = createBrowserRouter([
     element: <App />,
     errorElement: <ErrorPage />,
   },
-], { basename: import.meta.env.BASE_PATH });
+], { basename: import.meta.env.BASE_URL });
 
 ReactDOM.render(
   <React.StrictMode>
