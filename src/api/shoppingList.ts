@@ -1,43 +1,70 @@
 import type { ShoppingItem } from '../entities/ShoppingItem'
+// import { LOCAL_STORAGE_KEY } from '../constants'
 
-const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
+const baseFetchPostConfig = {
+    headers: {
+        'Content-Type': 'application/json' 
+    }
+}
 
 export const getShoppingList = async () => {
-    const strData = localStorage.getItem("my_shopping_list")
     let shoppingList: Array<ShoppingItem> = [];
-    if (strData) {
-        shoppingList = JSON.parse(strData)
+    try {
+        const response = await fetch('http://localhost:8080/tasks/') 
+        shoppingList = (await response.json()).tasks;
+    } catch (err) {
+        console.log(err)
+        throw err
     }
-    await sleep(Math.random() * 500)
-    return shoppingList
+    /*
+    ** We could leverage offline use with session/local storage
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(shoppingList)) 
+    */
+    return shoppingList;
 }
 
 export const createShoppingItem = async (item: ShoppingItem) => {
-    const strData = localStorage.getItem("my_shopping_list")
-    let shoppingList: Array<ShoppingItem> = [];
-    if (strData) {
-        shoppingList = JSON.parse(strData)
+    let newShoppingItem: ShoppingItem;
+    try {
+        const response = await fetch('http://localhost:8080/tasks/', {
+            ...baseFetchPostConfig,
+            method: 'POST',
+            body: JSON.stringify(item),
+        }) 
+        newShoppingItem = (await response.json()).task;
+    } catch (err) {
+        console.log(err)
+        throw err
     }
-    shoppingList.push(item);
-    localStorage.setItem("my_shopping_list", JSON.stringify(shoppingList))
-    await sleep(Math.random() * 500)
-    return shoppingList
+    return newShoppingItem
 }
 
 export const editShoppingItem = async (editedItem: ShoppingItem) => {
-    const strData = localStorage.getItem("my_shopping_list")
-    const shoppingList = JSON.parse(strData!) as Array<ShoppingItem>
-    const editedItems = shoppingList.map(item => item.id === editedItem.id ? editedItem : item);
-    localStorage.setItem("my_shopping_list", JSON.stringify(editedItems))
-    await sleep(Math.random() * 500)
-    return editedItems
+    let editedShoppingItem: ShoppingItem;
+    try {
+        const response = await fetch(`http://localhost:8080/tasks/${editedItem.id}`, {
+            ...baseFetchPostConfig,
+            method: 'PUT',
+            body: JSON.stringify(editedItem),
+        }) 
+        editedShoppingItem = (await response.json()).task;
+    } catch (err) {
+        console.log(err)
+        throw err
+    }
+    return editedShoppingItem;
 }
 
 export const deleteShoppingItem = async (itemToDelete: ShoppingItem) => {
-    const strData = localStorage.getItem("my_shopping_list")
-    const shoppingList = JSON.parse(strData!) as Array<ShoppingItem>
-    const editedItems = shoppingList.filter(item => item.id !== itemToDelete.id);
-    localStorage.setItem("my_shopping_list", JSON.stringify(editedItems))
-    await sleep(Math.random() * 500)
-    return editedItems
+    let deletedItem: ShoppingItem;
+    try {
+        const response = await fetch(`http://localhost:8080/tasks/${itemToDelete.id}`, {
+            method: 'DELETE'
+        }) 
+        deletedItem = (await response.json()).task;
+    } catch (err) {
+        console.log(err)
+        throw err
+    }
+    return deletedItem;
 }
