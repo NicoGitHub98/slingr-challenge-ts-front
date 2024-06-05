@@ -2,9 +2,7 @@
 
 This app is a small shopping list app (similar to a TODO List) that lets you create, edit and delete groceries to buy.
 
-The app is built using React + TypeScript + Vite and uses the browser localStorage for persistence.
-
-You can see a live demo [here]([https://nicogithub98.github.io/ShoppingList]) hosted on my github pages.
+The app is built using React + TypeScript + Vite and connects to a NODE + Express + postgres backend.
 
 To run the app you must first install dependencies: 
 ```
